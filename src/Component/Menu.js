@@ -1,32 +1,64 @@
 import React, { Component } from 'react';
-
-
+import { BrowserRouter as Router, Route,Switch,Link } from "react-router-dom";
+import Launch from './Launch';
+import About from './About';
+import Poll from './Poll';
+import NotFound from './NotFound';
 class Menu extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isDisplay: true
-        }
-    }
     render() {
         return (
-            <header className="masthead" id="menu">
-                <div className="container h-100">
-                    <div className="row h-100 align-items-center justify-content-center text-center">
-                        <div className="col-lg-10 align-self-end">
-                            <h1 className="text-uppercase text-white font-weight-bold">KhẢO SÁT VỀ SỰ LỰA CHỌN THỰC PHẨM CỦA SINH VIÊN </h1>
-                            <hr className="divider my-4" />
-                        </div>
-                        <div className="col-lg-8 align-self-baseline">
-                            <p className="text-white-75 font-weight-light mb-5">Bản khảo sát thực hiện tại trường Đại Học Văn Hiến</p>
-                            <a className="btn btn-primary btn-xl js-scroll-trigger" href="#about">Giới Thiệu Chung</a>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-
-
+            <Router>
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+            {/*---- Include the above in your HEAD tag --------*/}
+            <nav className="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+              <a className="navbar-brand" href="/#">Navbar</a>
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon" />
+              </button>
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                  <li className="nav-item ">
+                    <Link to ="/"className="nav-link" >
+                      <i className="fa fa-home" />
+                      Home
+                      <span className="sr-only">(current)</span>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to ="/about" className="nav-link" >
+                      <i className="fa fa-info" aria-hidden="true">
+                      </i>
+                      Giới thiệu
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/poll" className="nav-link" >
+                      <i className="fa fa-braille" aria-hidden="true">               
+                      </i>
+                      Khảo Sát
+                    </Link>
+                  </li>
+                </ul>
+                <ul className="navbar-nav ">
+                  <li className="nav-item">
+                    <Link to="/admin  " className="nav-link" >
+                      <i className="fa fa-user-secret" aria-hidden="true">
+                        <span className="badge badge-info"></span>
+                      </i>
+                      Đăng Nhập Admin
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+             {/* end nav */}
+              <Switch>
+              <Route path="/" exact component={Launch} />
+              <Route path="/about" component={About} />
+              <Route path="/poll" component={Poll} />
+              <Route component={NotFound} />
+              </Switch>
+            </Router>
         );
     }
 }

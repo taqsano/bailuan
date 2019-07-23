@@ -4,7 +4,7 @@ class Launch extends Component {
     render() {
         return (
             <div>
-                About
+                Launch
             </div>
         );
     }
