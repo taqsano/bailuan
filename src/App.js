@@ -6,9 +6,7 @@ class App extends Component {
     return (
       <div>
            <Menu/> 
-    </div>
-    
-      
+    </div>  
     );
   }
 }

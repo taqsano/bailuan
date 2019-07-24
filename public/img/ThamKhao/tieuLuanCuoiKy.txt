@@ -1,4 +1,0 @@
-﻿Chương 1 Giới Thiệu Phần mềm
-chương 2 Giới thiệu công nghệ
-chương 3 phân tích thiết kế hệ thống
-chương 4 Cài đặt và kiểm thử

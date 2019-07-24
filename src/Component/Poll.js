@@ -32,13 +32,13 @@ class Poll extends Component {
           }
         }
     
-        // show form admin
-        this.setState({
-          showform:!this.state.showform
-        });
+        // // show form admin
+        // this.setState({
+        //   showform:!this.state.showform
+        // });
     
-        this.validateDeficient();
-        console.log('mang: ' + this.state.mang);
+        // this.validateDeficient();
+        // console.log('mang: ' + this.state.mang);
       }
     
       //Hàm gán ID câu hỏi

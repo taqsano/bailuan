@@ -7,10 +7,10 @@ class FormCheck extends Component {
             dl: '',
         }
     }
+    
     handleClick = (dl) => {
         // console.log("dl: ",this.state.dl);
         this.props.handleClickParent(dl);
-      
     }
 
     setForm() {

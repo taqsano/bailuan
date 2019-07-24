@@ -4,6 +4,9 @@ import Launch from './Launch';
 import About from './About';
 import Poll from './Poll';
 import NotFound from './NotFound';
+import Login from './Login';
+import Admin from './Admin';
+
 class Menu extends Component {
     render() {
         return (
@@ -41,7 +44,7 @@ class Menu extends Component {
                 </ul>
                 <ul className="navbar-nav ">
                   <li className="nav-item">
-                    <Link to="/admin  " className="nav-link" >
+                    <Link to="/login" className="nav-link" >
                       <i className="fa fa-user-secret" aria-hidden="true">
                         <span className="badge badge-info"></span>
                       </i>
@@ -54,8 +57,10 @@ class Menu extends Component {
              {/* end nav */}
               <Switch>
               <Route path="/" exact component={Launch} />
-              <Route path="/about" component={About} />
-              <Route path="/poll" component={Poll} />
+              <Route path="/about" exact component={About} />
+              <Route path="/poll" exact component={Poll} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/admin" component={Admin} />
               <Route component={NotFound} />
               </Switch>
             </Router>
