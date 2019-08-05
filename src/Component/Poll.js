@@ -14,11 +14,11 @@ class Poll extends Component {
     
       //Hàm gọi khi nhấn nút "Đã khảo sát xong"
       ClickVote = () => {
-    
         // console.log("dl1: " + this.state.dl1);
         // console.log("dl2: " + this.state.dl2);
         // console.log("dl3: " + this.state.dl3);
-        // console.log("dl4: " + this.state.dl4);
+        // console.log("dl4: " + this.state.dl4);    
+
     
         this.state.mang.push(this.state.dl1); this.state.mang.push(this.state.dl2);
         this.state.mang.push(this.state.dl3); this.state.mang.push(this.state.dl4);
@@ -32,13 +32,6 @@ class Poll extends Component {
           }
         }
     
-        // // show form admin
-        // this.setState({
-        //   showform:!this.state.showform
-        // });
-    
-        // this.validateDeficient();
-        // console.log('mang: ' + this.state.mang);
       }
     
       //Hàm gán ID câu hỏi

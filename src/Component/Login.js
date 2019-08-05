@@ -1,31 +1,41 @@
 import React, { Component } from 'react';
 import Admin from './Admin';
 import { BrowserRouter as Router, Route,Switch,Link } from "react-router-dom";
+import styled from 'styled-components';
 // import {PostDataService} from './../Service/PostDataService'
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            useradm:"sano",
-            passwordadm:"123",
+            useradm:'sano',
+            passwordadm:'123',
             admin:false,
         }
     }
     isChange = (event) => {
+        var target = event.target;
+        var name = target.name;
+        var value = target.value
         this.setState({
-            [event.target.name]: event.target.value, 
+            [name]:value
         });
-        // console.log([event.target.name]+""+event.target.value);
     }
     
     Login =()=>{
-        
+        if(this.state.user===this.state.useradm && this.state.pass===this.state.passwordadm){
+            this.setState({
+                admin:true
+            });
+        }else{
+            return false;
+        }
     }
 
     render() {
-        return (
-            
+        return (    
+            <Container>
+            {!this.state.admin ?
             <section className="login-block">
                 <div className="container">
                     <div className="row">
@@ -34,12 +44,12 @@ class Login extends Component {
                             <form className="login-form">
                                 <div className="form-group">
                                     <label htmlFor="exampleInputEmail1" className="text-uppercase">Username</label>
-                                    <input type="text" className="form-control" id="user"
+                                    <input type="text" className="form-control" name="user"
                                     onChange={(event) => this.isChange(event)} required/>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="exampleInputPassword1" className="text-uppercase" id="password">Password</label>
-                                    <input type="password" className="form-control" autoComplete="password"
+                                    <label htmlFor="exampleInputPassword1" className="text-uppercase" >Password</label>
+                                    <input type="password" className="form-control" autoComplete="password" name="pass"
                                    onChange={(event) => this.isChange(event)} required/>
                                 </div>
                                 <div className="form-check">
@@ -47,7 +57,7 @@ class Login extends Component {
                                         <input type="checkbox" className="form-check-input" />
                                         <small>Remember</small>
                                     </label>
-                                    <a href="/admin" className="btn btn-login float-right" onClick={()=>this.Login()}>Đăng Nhập</a>
+                                    <a  className="btn btn-login float-right" onClick={()=>this.Login()}>Đăng Nhập</a>
                                 </div>
                             </form>
                         </div>
@@ -68,10 +78,15 @@ class Login extends Component {
                     </div>
                 </div>
                 </section>
-          
+                :
+                window.location.href = "/admin"
+            }
+          </Container>
                 
         );
     }
 }
 
 export default Login;
+const Container = styled.div`
+`
